@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,6 +11,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
@@ -20,44 +23,60 @@
 
 <aside class="sidebar">
 
-<div class="window-controls">
+
+<div class="traffic-lights">
+
 <span></span>
 <span></span>
 <span></span>
+
 </div>
 
 
+
 <h1>
-📚 Study
+Study
 </h1>
+
 
 
 <nav>
 
-<button class="nav active" data-page="today">
+<button class="nav-btn active" data-page="today">
 Today
 </button>
 
-<button class="nav" data-page="timetable">
+
+<button class="nav-btn" data-page="timetable">
 Timetable
 </button>
 
-<button class="nav" data-page="tasks">
+
+<button class="nav-btn" data-page="tasks">
 Tasks
 </button>
 
-<button class="nav" data-page="planner">
+
+<button class="nav-btn" data-page="assignments">
+Assignments
+</button>
+
+
+<button class="nav-btn" data-page="planner">
 AI Planner
 </button>
 
-<button class="nav" data-page="settings">
+
+<button class="nav-btn" data-page="settings">
 Settings
 </button>
+
 
 </nav>
 
 
-<div class="sidebar-bottom">
+
+<div class="sidebar-footer">
 
 <button id="themeToggle">
 🌙 Dark Mode
@@ -65,56 +84,70 @@ Settings
 
 </div>
 
+
+
 </aside>
 
 
 
 
 
-<!-- MAIN -->
 
-<main>
+<!-- MAIN CONTENT -->
+
+<main class="content">
+
+
 
 
 
 <!-- TODAY PAGE -->
 
-<section id="today" class="page active">
+<section class="page active" id="today">
 
 
-<header class="page-header">
+<div class="page-title">
 
 <div>
 
 <h2>
-Good morning, Lachlan
+Today
 </h2>
 
-<p id="date"></p>
+<p id="currentDate"></p>
 
 </div>
 
 
-<div class="countdown-card">
 
-<span>
+<div class="next-class-card">
+
+
+<p>
 Next Class
-</span>
+</p>
+
+
+<h3 id="nextClass">
+Loading...
+</h3>
+
 
 <strong id="countdown">
-Loading...
 </strong>
+
 
 </div>
 
 
-</header>
+</div>
 
 
 
 
 
-<div class="glass-card current-card">
+<div class="glass-card current-lesson">
+
 
 <h3>
 Current Lesson
@@ -123,12 +156,14 @@ Current Lesson
 
 <div id="currentLesson">
 
-No active lesson
+No lesson currently running.
 
 </div>
 
 
 </div>
+
+
 
 
 
@@ -136,21 +171,27 @@ No active lesson
 
 <div class="glass-card">
 
+
 <h3>
 Today's Subjects
 </h3>
 
 
-<div id="todayClasses"
+<div id="todayTimeline"
 class="timeline">
 
+
 </div>
 
 
 </div>
+
 
 
 </section>
+
+
+
 
 
 
@@ -159,11 +200,11 @@ class="timeline">
 
 <!-- TIMETABLE PAGE -->
 
+<section class="page" id="timetable">
 
-<section id="timetable" class="page">
 
+<div class="page-title">
 
-<header class="page-header">
 
 <h2>
 Overall Timetable
@@ -171,38 +212,55 @@ Overall Timetable
 
 
 <input 
-id="searchTimetable"
-placeholder="Search subject or teacher...">
+id="timetableSearch"
+placeholder="Search subject or teacher">
 
-</header>
+
+</div>
 
 
 
 
 <div class="glass-card">
 
-<div class="timeline-toggle">
 
-<button>
+<div class="view-switch">
+
+
+<button id="weeklyViewBtn">
 Weekly
 </button>
 
-<button>
+
+<button id="timelineViewBtn">
 Timeline
 </button>
 
-</div>
-
-
-<div id="fullTimetable">
 
 </div>
 
 
+
+<div id="weeklyTimetable">
+
 </div>
+
+
+
+<div id="timelineTimetable"
+class="hidden">
+
+</div>
+
+
+
+</div>
+
 
 
 </section>
+
+
 
 
 
@@ -212,34 +270,39 @@ Timeline
 
 <!-- TASKS PAGE -->
 
+<section class="page" id="tasks">
 
-<section id="tasks" class="page">
 
-
-<header class="page-header">
+<div class="page-title">
 
 <h2>
 Tasks
 </h2>
 
-</header>
+</div>
 
 
 
 
-<div class="columns">
+
+<div class="dashboard-grid">
+
 
 
 <div class="glass-card">
+
 
 <h3>
 Todo List
 </h3>
 
 
+
 <div class="input-row">
 
-<input id="todoInput"
+
+<input 
+id="todoInput"
 placeholder="Add task">
 
 
@@ -249,6 +312,7 @@ placeholder="Add task">
 
 
 </div>
+
 
 
 <ul id="todoList">
@@ -263,32 +327,16 @@ placeholder="Add task">
 
 
 
-<div class="glass-card">
-
-<h3>
-Homework
-</h3>
-
-
-<div id="homeworkList">
-
-</div>
-
-
-</div>
-
-
-
-
 
 <div class="glass-card">
 
+
 <h3>
-Assignments
+Homework Tracker
 </h3>
 
 
-<div id="assignmentList">
+<div id="homeworkTracker">
 
 </div>
 
@@ -310,18 +358,81 @@ Assignments
 
 
 
+<!-- ASSIGNMENTS -->
+
+<section class="page" id="assignments">
+
+
+<div class="page-title">
+
+<h2>
+Assignment Tracker
+</h2>
+
+
+</div>
+
+
+
+
+<div class="glass-card">
+
+
+<div class="input-row">
+
+
+<input
+id="assignmentName"
+placeholder="Assignment name">
+
+
+<input
+id="assignmentSubject"
+placeholder="Subject">
+
+
+<button id="addAssignment">
++
+</button>
+
+
+</div>
+
+
+
+<div id="assignmentList">
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
 <!-- AI PLANNER -->
 
-<section id="planner" class="page">
+<section class="page" id="planner">
 
 
-<header class="page-header">
+<div class="page-title">
 
 <h2>
 AI Study Planner
 </h2>
 
-</header>
+</div>
+
+
 
 
 
@@ -344,13 +455,13 @@ Generate Study Plan
 
 
 
+
 <div id="studyPlan">
 
 </div>
 
 
 </div>
-
 
 
 </section>
@@ -365,17 +476,20 @@ Generate Study Plan
 
 <!-- SETTINGS -->
 
+<section class="page" id="settings">
 
-<section id="settings" class="page">
 
-
-<header class="page-header">
+<div class="page-title">
 
 <h2>
 Settings
 </h2>
 
-</header>
+
+</div>
+
+
+
 
 
 
@@ -388,22 +502,26 @@ Import Timetable
 
 
 <p>
-Upload your school timetable .ics file.
+Import your school's .ics calendar file.
 </p>
 
 
-<input 
+
+<input
 type="file"
-id="icsUpload"
+id="icsInput"
 accept=".ics">
 
 
-<div id="importStatus">
+<p id="importStatus">
+
+</p>
+
 
 </div>
 
 
-</div>
+
 
 
 
@@ -413,16 +531,19 @@ accept=".ics">
 
 
 <h3>
-Subjects & Colours
+Subject Colours
 </h3>
 
 
-<div id="colourManager">
+
+<div id="subjectColours">
 
 </div>
 
 
 </div>
+
+
 
 
 </section>
@@ -431,7 +552,11 @@ Subjects & Colours
 
 
 
+
+
 </main>
+
+
 
 </div>
 
@@ -439,9 +564,10 @@ Subjects & Colours
 
 
 
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 
 
 </body>
+
 
 </html>
