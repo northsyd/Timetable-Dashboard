@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Study Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="window">
+
+<header>
+    <div class="traffic">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <h1>Study Dashboard</h1>
+</header>
+
+
+<section class="hero">
+
+<div>
+<h2>Next Class</h2>
+<div id="nextClass">
+Loading...
+</div>
+</div>
+
+<div class="clock">
+<h2>Time</h2>
+<p id="time"></p>
+</div>
+
+</section>
+
+
+
+<div class="grid">
+
+
+<!-- TIMETABLE -->
+
+<div class="card timetable">
+
+<h2>Timetable</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Time</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+<th>Friday</th>
+</tr>
+</thead>
+
+
+<tbody id="timetableBody">
+
+<!-- Add your timetable here -->
+
+<tr>
+<td>9:00</td>
+<td class="subject maths">Maths</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- TODO -->
+
+<div class="card">
+
+<h2>Todo List</h2>
+
+<div class="inputRow">
+
+<input id="todoInput" placeholder="New task">
+
+<button onclick="addTodo()">+</button>
+
+</div>
+
+
+<ul id="todoList"></ul>
+
+</div>
+
+
+
+<!-- ASSIGNMENTS -->
+
+<div class="card">
+
+<h2>Assignments</h2>
+
+<div class="inputRow">
+
+<input id="assignmentInput"
+placeholder="Assignment">
+
+<button onclick="addAssignment()">+</button>
+
+</div>
+
+
+<ul id="assignmentList"></ul>
+
+</div>
+
+
+
+<!-- HOMEWORK -->
+
+<div class="card">
+
+<h2>Homework Progress</h2>
+
+<input 
+type="range"
+id="homework"
+min="0"
+max="100"
+value="0"
+oninput="updateHomework()">
+
+
+<p>
+<span id="homeworkValue">0</span>% Complete
+</p>
+
+</div>
+
+
+
+
+<!-- CALENDAR -->
+
+<div class="card">
+
+<h2>Calendar</h2>
+
+<div id="calendar"></div>
+
+</div>
+
+
+
+
+<!-- AI PLANNER -->
+
+<div class="card planner">
+
+<h2>AI Study Planner</h2>
+
+<textarea 
+id="plannerInput"
+placeholder="Enter homework, tests, deadlines...">
+</textarea>
+
+
+<button onclick="generatePlan()">
+Create Study Plan
+</button>
+
+
+<div id="studyPlan"></div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
