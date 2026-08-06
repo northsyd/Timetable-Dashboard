@@ -7,61 +7,444 @@
 <title>Study Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="window">
 
-<header>
-    <div class="traffic">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
+<div class="app">
 
-    <h1>Study Dashboard</h1>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="window-controls">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+
+<h1>
+📚 Study
+</h1>
+
+
+<nav>
+
+<button class="nav active" data-page="today">
+Today
+</button>
+
+<button class="nav" data-page="timetable">
+Timetable
+</button>
+
+<button class="nav" data-page="tasks">
+Tasks
+</button>
+
+<button class="nav" data-page="planner">
+AI Planner
+</button>
+
+<button class="nav" data-page="settings">
+Settings
+</button>
+
+</nav>
+
+
+<div class="sidebar-bottom">
+
+<button id="themeToggle">
+🌙 Dark Mode
+</button>
+
+</div>
+
+</aside>
+
+
+
+
+
+<!-- MAIN -->
+
+<main>
+
+
+
+<!-- TODAY PAGE -->
+
+<section id="today" class="page active">
+
+
+<header class="page-header">
+
+<div>
+
+<h2>
+Good morning, Lachlan
+</h2>
+
+<p id="date"></p>
+
+</div>
+
+
+<div class="countdown-card">
+
+<span>
+Next Class
+</span>
+
+<strong id="countdown">
+Loading...
+</strong>
+
+</div>
+
+
 </header>
 
 
-<section class="hero">
 
-<div>
-<h2>Next Class</h2>
-<div id="nextClass">
-Loading...
-</div>
+
+
+<div class="glass-card current-card">
+
+<h3>
+Current Lesson
+</h3>
+
+
+<div id="currentLesson">
+
+No active lesson
+
 </div>
 
-<div class="clock">
-<h2>Time</h2>
-<p id="time"></p>
+
 </div>
+
+
+
+
+
+<div class="glass-card">
+
+<h3>
+Today's Subjects
+</h3>
+
+
+<div id="todayClasses"
+class="timeline">
+
+</div>
+
+
+</div>
+
 
 </section>
 
 
 
-<div class="grid">
 
 
-<!-- TIMETABLE -->
 
-<div class="card timetable">
+<!-- TIMETABLE PAGE -->
 
-<h2>Timetable</h2>
 
-<table>
+<section id="timetable" class="page">
 
-<thead>
-<tr>
-<th>Time</th>
-<th>Monday</th>
-<th>Tuesday</th>
-<th>Wednesday</th>
-<th>Thursday</th>
-<th>Friday</th>
-</tr>
+
+<header class="page-header">
+
+<h2>
+Overall Timetable
+</h2>
+
+
+<input 
+id="searchTimetable"
+placeholder="Search subject or teacher...">
+
+</header>
+
+
+
+
+<div class="glass-card">
+
+<div class="timeline-toggle">
+
+<button>
+Weekly
+</button>
+
+<button>
+Timeline
+</button>
+
+</div>
+
+
+<div id="fullTimetable">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- TASKS PAGE -->
+
+
+<section id="tasks" class="page">
+
+
+<header class="page-header">
+
+<h2>
+Tasks
+</h2>
+
+</header>
+
+
+
+
+<div class="columns">
+
+
+<div class="glass-card">
+
+<h3>
+Todo List
+</h3>
+
+
+<div class="input-row">
+
+<input id="todoInput"
+placeholder="Add task">
+
+
+<button id="addTodo">
++
+</button>
+
+
+</div>
+
+
+<ul id="todoList">
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<div class="glass-card">
+
+<h3>
+Homework
+</h3>
+
+
+<div id="homeworkList">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="glass-card">
+
+<h3>
+Assignments
+</h3>
+
+
+<div id="assignmentList">
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- AI PLANNER -->
+
+<section id="planner" class="page">
+
+
+<header class="page-header">
+
+<h2>
+AI Study Planner
+</h2>
+
+</header>
+
+
+
+<div class="glass-card">
+
+
+<textarea
+id="plannerInput"
+placeholder="
+Enter upcoming tests, homework and deadlines...
+"></textarea>
+
+
+
+<button id="generatePlan">
+
+Generate Study Plan
+
+</button>
+
+
+
+<div id="studyPlan">
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- SETTINGS -->
+
+
+<section id="settings" class="page">
+
+
+<header class="page-header">
+
+<h2>
+Settings
+</h2>
+
+</header>
+
+
+
+<div class="glass-card">
+
+
+<h3>
+Import Timetable
+</h3>
+
+
+<p>
+Upload your school timetable .ics file.
+</p>
+
+
+<input 
+type="file"
+id="icsUpload"
+accept=".ics">
+
+
+<div id="importStatus">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="glass-card">
+
+
+<h3>
+Subjects & Colours
+</h3>
+
+
+<div id="colourManager">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+</div>
+
+
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html></tr>
 </thead>
 
 
